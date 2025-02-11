@@ -9,6 +9,8 @@
         <link href="{%static 'app/css/style.css' %}" rel="stylesheet" />
         <link href="{%static 'app/css/owl.carousel.min.css' %}" rel="stylesheet" />
         <link href="{%static 'app/css/all.min.css' %}" rel="stylesheet" />
+        <link href="{%static 'app/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         
         <link rel="stylesheet" type="text/css" href="{% static 'app/css/main.css' %}">
@@ -116,10 +118,12 @@
           {% block login %}{% endblock login %}
           {% block search %}{% endblock search %}
           {% block category %}{% endblock category %}
+          {% block detail %}{% endblock detail %}
           <!--footer-->
           <footer class="container--fluid bg-success text-center fixed-bottom p-2 mt-5">
                 copyright 2025
           </footer>
+
           <script src="{%static 'app/js/cart.js' %}" > </script>
     </body>
 </html>

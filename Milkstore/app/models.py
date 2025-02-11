@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your models here.
+
+
+
 class Category(models.Model):
     sub_category = models.ForeignKey('self', on_delete=models.CASCADE,related_name='sub_categories',null=True, blank=True)
     is_sub = models.BooleanField(default=False)
@@ -30,6 +33,25 @@ class Product(models.Model):
         except:
             url=''
         return url
+    
+
+class ReviewRating(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=100, blank=True)
+    review = models.TextField(max_length=500, blank=True)
+    rating = models.FloatField()
+    ip = models.CharField(max_length=20, blank=True)
+    status = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.subject
+
+
+
+
 class Order(models.Model):
     customer = models.ForeignKey(User,on_delete=models.SET_NULL, null=True, blank=True)
     date_order = models.DateTimeField(auto_now_add=True)
